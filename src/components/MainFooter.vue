@@ -3,6 +3,9 @@
     <div>
       &copy; 2019 dcenatiempo.com
     </div>
+    <div>
+      <a href="https://github.com/dcenatiempo/flex-grid-playground">github repo</a>
+    </div>
   </footer>
 </template>
 
@@ -14,8 +17,12 @@ export default {
 
 <style lang="scss">
   footer {
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     div {
-      padding: 16px;
+      padding: 0 10px;
     }
   }
 </style>
