@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from '@/views/Home.vue'
+import Flex from '@/views/Flex.vue' // eslint-disable-line
+import Grid from '@/views/Grid.vue' // eslint-disable-line
 
 Vue.use(Router)
 
@@ -12,12 +14,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/flex',
+      name: 'flex',
+      component: () => import(/* webpackChunkName: "flex" */ '@/views/Flex.vue')
+    },
+    {
+      path: '/grid',
+      name: 'grid',
+      component: () => import(/* webpackChunkName: "grid" */ '@/views/Grid.vue')
     }
   ]
 })
