@@ -4,7 +4,7 @@
       &copy; 2019 dcenatiempo.com
     </div>
     <div>
-      <a href="https://github.com/dcenatiempo/flex-grid-playground">github repo</a>
+      <a target="_blank" href="https://github.com/dcenatiempo/flex-grid-playground">github repo</a>
     </div>
   </footer>
 </template>
