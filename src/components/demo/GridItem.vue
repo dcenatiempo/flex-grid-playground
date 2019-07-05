@@ -122,8 +122,9 @@ export default {
 
       .labeled-input {
 
+
         label {
-          flex-basis: 82;
+          flex-basis: 135px;
         }
 
         input[type=color] {
@@ -140,6 +141,7 @@ export default {
         > :last-child {
           flex-basis: 82px;
           flex-grow: 1;
+          width: 100%
         }
 
       }

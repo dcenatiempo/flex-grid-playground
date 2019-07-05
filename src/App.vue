@@ -114,6 +114,7 @@ select {
   grid-template-areas:
     "header header"
     "side content";
+  }
 
   .side-menu {
     grid-area: side;
@@ -139,6 +140,7 @@ select {
   .labeled-input {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
     margin: 5px 0;
     padding-left: 5px;
 
@@ -177,7 +179,6 @@ select {
       padding: 1rem 1rem;
     }
   }
-}
 
 
 </style>

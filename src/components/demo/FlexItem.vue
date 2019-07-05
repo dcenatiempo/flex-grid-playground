@@ -138,6 +138,7 @@ export default {
         > :last-child {
           flex-basis: 82px;
           flex-grow: 1;
+          width: 50%;
         }
 
       }

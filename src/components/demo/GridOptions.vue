@@ -73,7 +73,7 @@
       <div class="grid-options">
         <span class="labeled-input">
           <label>items</label>
-          <input class="input" v-model.number="gridChilditems" type="number" min="1" max="50" step="1"/>
+          <input class="input" v-model.number="gridChild.items" type="number" min="1" max="50" step="1"/>
         </span>
       </div>
     </collapseable-card>
