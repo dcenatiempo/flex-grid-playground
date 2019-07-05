@@ -1,6 +1,7 @@
 <template>
-  <div class="grid-options">
-    <collapseable-card v-if="expanded" title="Container Options">
+  <div v-if="expanded" class="grid-options">
+    <button class="reset-btn" @click="resetGrid">Reset Options</button>
+    <collapseable-card title="Container Options">
       <div class="grid-options">
 
         <span class="labeled-input">
@@ -81,7 +82,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import CollapseableCard from '@/components/CollapseableCard';
 
 export default {
@@ -102,6 +103,9 @@ export default {
   },
   computed: {
     ...mapState(['gridParent', 'gridChild']),
+  },
+  methods: {
+    ...mapMutations(['resetGrid']),
   }
 
 }
@@ -109,7 +113,9 @@ export default {
 
 <style lang="scss">
   .grid-options {
-    margin-right: .5rem;
+    margin: 0 .5rem;
+    display: grid;
+    grid-gap: 1rem;
 
     input, textarea, select {
       border: none;

@@ -1,6 +1,7 @@
 <template>
   <div class="grid-page">
-    <collapseable-card title="CSS Grid Resources">
+    <grid-demo />
+    <collapseable-card class="resources" title="CSS Grid Resources">
       <ul style="padding: 5px 0px 20px 10px;">
         <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks - Grid Tutorial</a></li>
         <li><a href="https://gridbyexample.com/examples/">Grid By Example</a></li>
@@ -8,7 +9,6 @@
         <li><a href="https://learn.freecodecamp.org/responsive-web-design/css-grid/">Free Code Camp - Grid Lessons</a></li>
       </ul>
     </collapseable-card>
-    <grid-demo />
   </div>
 </template>
 
@@ -37,6 +37,8 @@ export default {
 
 <style lang="scss">
   .grid-page {
-
+    .resources {
+      margin-top: 1rem;
+    }
   }
 </style>

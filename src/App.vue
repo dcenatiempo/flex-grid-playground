@@ -114,71 +114,84 @@ select {
   grid-template-areas:
     "header header"
     "side content";
+}
+
+.side-menu {
+  grid-area: side;
+}
+.sticky-header {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-x: scroll;
+
+  .content-wrapper {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+  .sticky-footer {
+  
+  }
+}
+
+.labeled-input {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 5px 0;
+  padding-left: 5px;
+
+  label {
+    font-family: 'Courier New', Courier, monospace;
+    flex-basis: 220px;
   }
 
-  .side-menu {
-    grid-area: side;
-  }
-  .sticky-header {
-    grid-area: header;
-  }
-  .content {
-    grid-area: content;
-    display: flex;
-    flex-flow: column nowrap;
-    overflow-x: scroll;
-
-    .content-wrapper {
-      flex-grow: 1;
-      padding: 1rem;
-    }
-    .sticky-footer {
-    
-    }
+  label::after {
+    content: ":";
   }
 
-  .labeled-input {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin: 5px 0;
-    padding-left: 5px;
-
-    label {
-      font-family: 'Courier New', Courier, monospace;
-      flex-basis: 220px;
-    }
-
-    label::after {
-      content: ":";
-    }
-
-    .input {
-      flex-basis: 220px;
-    }
-
-    input[type=color] {
-      max-width: 82px;
-      width: 100%;
-    }
-    input[type=text] {
-      width: 50%;
-    }
-
-    > :last-child {
-      // width: 100%;
-    }
+  .input {
+    flex-basis: 220px;
   }
 
-  @media only screen and (max-width: 550px) {
-    grid-template-areas:
-      ". header header"
-      "side content content";
-
-    .my-container {
-      padding: 1rem 1rem;
-    }
+  input[type=color] {
+    max-width: 82px;
+    width: 100%;
   }
+  input[type=text] {
+    width: 50%;
+  }
+
+  > :last-child {
+    // width: 100%;
+  }
+}
+
+.reset-btn {
+  border: none;
+  background-color: gray;
+  padding: .5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color ease 200ms;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  grid-template-areas:
+    ". header header"
+    "side content content";
+
+  .my-container {
+    padding: 1rem 1rem;
+  }
+}
 
 
 </style>

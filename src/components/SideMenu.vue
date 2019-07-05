@@ -57,7 +57,7 @@ aside.side-menu {
   }
 
   nav {
-    padding: 16px 0;
+    padding: 1.5rem 0;
   }
   ul {
     list-style: none;
@@ -96,6 +96,10 @@ aside.side-menu {
           max-width: unset;
         }
     }
+  }
+  
+  .collapseable-title {
+    color: white;
   }
 }
 

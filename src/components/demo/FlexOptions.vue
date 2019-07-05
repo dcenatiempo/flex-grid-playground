@@ -1,6 +1,7 @@
 <template>
-  <div class="flex-options">
-    <collapseable-card v-if="expanded" title="Container Options">
+  <div v-if="expanded" class="flex-options">
+    <button class="reset-btn" @click="resetFlex">Reset Options</button>
+    <collapseable-card title="Container Options">
       <div class="flex-options">
         
         <span class="labeled-input">
@@ -85,7 +86,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import CollapseableCard from '@/components/CollapseableCard';
 
 export default {
@@ -109,6 +110,9 @@ export default {
   },
   computed: {
     ...mapState(['flexParent', 'flexChild']),
+  },
+  methods: {
+    ...mapMutations(['resetFlex']),
   }
 
 }
@@ -116,7 +120,9 @@ export default {
 
 <style lang="scss">
 .flex-options {
-   margin-right: .5rem;
+   margin: 0 .5rem;
+   display: grid;
+   grid-gap: 1rem;
 
   input, textarea, select {
     border: none;

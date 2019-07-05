@@ -78,7 +78,7 @@ export default {
   computed: {
     style() {
       return `
-        margin: ${this.margin/2}px;
+        margin: ${this.margin}px;
         order: ${this.order};
         flex-grow: ${this.grow};
         flex-shrink: ${this.shrink};
