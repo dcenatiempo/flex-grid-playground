@@ -21,7 +21,6 @@ export default new Vuex.Store({
     gridChild: {
       items: 2,
     },
-    gridChildren: [],
     flexParent: {
       height: 500,
       padding: 8,
@@ -38,35 +37,12 @@ export default new Vuex.Store({
       shrink: 1,
       basis: '100'
     },
-    flexChildren: [],
   },
   mutations: {
-    setChild(state, {type, index, item}) {
-      debugger
-      const children = state[`${type}Children`];
-      let newChildren;
-      if (index >= children.length - 1) {
-        newChildren = children.concat(item);
-      } else {
-        newChildren = children.map(child => {
-          if (child.index === index)
-            return item;
-          else return child;
-        });
-      }
-      state[`${type}Children`] = newChildren;
-    },
-    removeChild(state, {type}) {
-      state[`${type}Children`] = state[`${type}Children`].slice(0, -1); 
-    }
+
+
   },
   getters: {
-    child: state => (type, index) => {
-      debugger
-      const children = state[`${type}Children`];
-      const child = children[index - 1];
-      return child;
-    },
     gridStyle: state => {
       let style = `
         min-height: ${state.gridParent.height}px;

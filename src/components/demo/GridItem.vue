@@ -4,41 +4,41 @@
         <span class="grid-item-column">
           <span class="labeled-input">
             <label>color</label>
-            <div><input v-model="child.color" type="color" /></div>
+            <div><input v-model="color" type="color" /></div>
           </span>
-          <!-- <span class="labeled-input">
+          <span class="labeled-input">
             <label>z-index</label>
-            <input v-model="child.zIndex" type="number" />
-          </span> -->
+            <input v-model="zIndex" type="number" />
+          </span>
           <span class="labeled-input">
             <label>grid-column</label>
             <span>
-              <input v-model="child.columnStart" class="half" type="text" min="0" max="10" step="1"/>
-              <input v-model="child.columnEnd" class="half" type="text" min="0" max="10" step="1"/>
+              <input v-model="columnStart" class="half" type="text" min="0" max="10" step="1"/>
+              <input v-model="columnEnd" class="half" type="text" min="0" max="10" step="1"/>
             </span>
           </span>
           <span class="labeled-input">
             <label>grid-row</label>
             <span>
-              <input v-model="child.rowStart" class="half" type="text" min="0" max="10" step="1"/>
-              <input v-model="child.rowEnd" class="half" type="text" min="0" max="10" step="1"/>
+              <input v-model="rowStart" class="half" type="text" min="0" max="10" step="1"/>
+              <input v-model="rowEnd" class="half" type="text" min="0" max="10" step="1"/>
             </span>
           </span>
         </span>
         <span class="grid-item-column">
           <span class="labeled-input">
             <label>grid-area</label>
-            <input v-model="child.area" type="text"/>
+            <input v-model="area" type="text"/>
           </span>
           <span class="labeled-input">
             <label>alignSelf</label>
-            <select v-model="child.alignSelf">
+            <select v-model="alignSelf">
               <option v-for="option in selfOptions" :value="option" :key="`grid-a-s-${option}`">{{option}}</option>
             </select>
           </span>
           <span class="labeled-input">
             <label>justify-self</label>
-            <select v-model="child.justifySelf">
+            <select v-model="justifySelf">
               <option v-for="option in selfOptions" :value="option" :key="`grid-j-s-${option}`">{{option}}</option>
             </select>
           </span>
@@ -49,7 +49,6 @@
 
 <script>
 import CollapseableCard from '@/components/CollapseableCard';
-import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: 'GridItem',
@@ -58,18 +57,16 @@ export default {
   },
   data() {
     return {
-      child: {
-        columnStart: 'auto',
-        columnEnd: 'auto',
-        rowStart: 'auto',
-        rowEnd: 'auto',
-        area: '',
-        justifySelf: 'unset',
-        alignSelf: 'unset',
-        selfOptions: [ 'unset', 'start', 'end', 'center', 'stretch' ],
-        color: 'white',
-        zIndex: 0,
-      },
+      columnStart: 'auto',
+      columnEnd: 'auto',
+      rowStart: 'auto',
+      rowEnd: 'auto',
+      area: '',
+      justifySelf: 'unset',
+      alignSelf: 'unset',
+      selfOptions: [ 'unset', 'start', 'end', 'center', 'stretch' ],
+      color: 'white',
+      zIndex: 0,
     }
   },
   props: {
@@ -81,46 +78,21 @@ export default {
       type: Number,
       default: 2,
     },
-
   },
   computed: {
-    ...mapGetters(['getChild', 'gridChildren']),
     style() {
-      let child = this.child('grid', this.index);
-      debugger
       let style = `
-        z-index: ${child.zIndex};
-        background: ${child.color};
-        grid-column-start: ${child.columnStart};
-        grid-column-end: ${child.columnEnd};
-        grid-row-start: ${child.rowStart};
-        grid-row-end: ${child.rowEnd};
-        justify-self: ${child.justifySelf};
-        align-self: ${child.alignSelf};`;
-      style += child.area ? `grid-area: ${child.area};` : '';
+        z-index: ${this.zIndex};
+        background: ${this.color};
+        grid-column-start: ${this.columnStart};
+        grid-column-end: ${this.columnEnd};
+        grid-row-start: ${this.rowStart};
+        grid-row-end: ${this.rowEnd};
+        justify-self: ${this.justifySelf};
+        align-self: ${this.alignSelf};`;
+      style += this.area ? `grid-area: ${this.area};` : '';
       style = style.replace(/\n/g, ' ');
       return style;
-    }
-  },
-  methods: {
-    ...mapMutations(['setChild']),
-  },
-  mounted() {
-    this.setChild({
-      type: 'grid',
-      index: this.index,
-      item: this.child,
-    });
-  },
-  unMounted() {
-    this.removeChild({
-      type: 'grid',
-    })
-  },
-  watch: {
-    gridChildren() {
-      debugger
-      this.child = getChild('grid', this.index);
     }
   }
 }
